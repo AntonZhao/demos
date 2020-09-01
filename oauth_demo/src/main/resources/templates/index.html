@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<h2>这是GitHub OAuth 的 Demo 首页</h2>
+
+<a href="http://localhost:8081">首页</a>
+
+<li th:if="${session.user!=null}">
+    <h2>用户：<span th:text="${session.user}"></span></h2>
+    <a href="/logout">退出登录</a>
+</li>
+
+<li th:if="${session.user==null}">
+    <a href="https://github.com/login/oauth/authorize?client_id=885000f93a718e3d6ec0&redirect_uri=http://localhost:8081/callback&scope=user&state=1">登录</a>
+</li>
+
+</body>
+</html>
